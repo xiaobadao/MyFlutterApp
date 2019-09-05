@@ -6,6 +6,8 @@ import 'SPTabBar/SPBottomAppBarB.dart';
 import 'SPTabBar/SPCupertinoTabBar.dart';
 import 'SPControllers/SPLogControl/SPLogController.dart';
 import 'package:flutter_app/SPControllers/SPLogControl/SPStartAppState.dart';
+import 'package:flutter_app/SPControllers/SPReportController.dart';
+import 'package:flutter_app/SPControllers/SPReportListVC.dart';
 void main() => runApp(new SPMyApp());
 
 class  SPMyApp extends StatelessWidget{
@@ -17,10 +19,9 @@ class  SPMyApp extends StatelessWidget{
       theme: new ThemeData(
           primaryColor: Colors.teal
       ),
-//      home: new SPLogController(),
       home: Scaffold(
         body: SPStartApp(),
-      ) //SPCupertinoTabBar()//SPBottomAppBarB()//SPBottomNavigationBarA(),
+      )
     );
   }
 }

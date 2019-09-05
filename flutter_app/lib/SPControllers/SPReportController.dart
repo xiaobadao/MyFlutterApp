@@ -11,7 +11,21 @@ class SPReportController extends StatelessWidget {
         appBar: AppBar(
           title: Text("报货"),
           backgroundColor: Colors.teal,
+          actions: <Widget>[
+            RaisedButton(
+                color: Colors.white,
+                onPressed: null
+            ),
+          ],
 
+        ),
+        body: Center(
+          child: RaisedButton(onPressed: (){
+
+                if (Navigator.canPop(context)){
+                  Navigator.pop(context);
+                }
+          }),
         ),
 
         ),

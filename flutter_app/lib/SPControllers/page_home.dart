@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/SPControllers/SPReportController.dart';
+import 'package:flutter_app/SPControllers/SPReportListVC.dart';
+import 'package:flutter_app/SPMD5.dart';
+
 class PageHome extends StatelessWidget {
 
   @override
@@ -14,6 +17,7 @@ class PageHome extends StatelessWidget {
           backgroundColor: Colors.teal,
 
         ),
+
         body: Center(
           child: GridView.count(
               crossAxisCount: 4,
@@ -22,6 +26,34 @@ class PageHome extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             children: <Widget>[
+
+              new Container(
+
+                child: RaisedButton(
+                  color: Colors.orange,
+                  child: Text("报货",style: TextStyle(fontSize: 20)),
+                  textTheme: ButtonTextTheme.normal,
+                  onPressed: (){
+                    print("报货");
+                    pushNavigation(context, (BuildContext context) => SPReportController());
+
+                  },
+
+                ),
+              ),
+              new Container(
+
+                padding: EdgeInsets.all(0),
+                child: RaisedButton(
+                  color: Colors.teal,
+                  child: Text("报货单",style: TextStyle(fontSize: 20)),
+                  onPressed: (){
+                    print("报货单");
+                    pushNavigation(context, (BuildContext context) => SPReportListVC());
+
+                  },
+                ),
+              ),
               new Container(
                 color: Colors.lightBlue,
                 child: new Stack(
@@ -38,47 +70,12 @@ class PageHome extends StatelessWidget {
                     ),
                   ],
                 ),
-
-                //child: Chi,
               ),
 
               new Container(
                 color: Colors.lightGreen,
               ),
-              new Container(
-                color: Colors.red,
-                padding: EdgeInsets.all(0),
-                child: RaisedButton.icon(
-                    onPressed: (){
-                  print("报货单");
-                },
-                    icon: Icon(Icons.home), 
-                    label: Text("报货单")),
-              ),
-              new Container(
-                color: Colors.orange,
-                child: RaisedButton(
 
-                  child: Text("报货"),
-                  textTheme: ButtonTextTheme.normal,
-                  onPressed: (){
-                    print("报货");
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (BuildContext context) => SPReportController()),
-                      ModalRoute.withName('/'),
-                    );
-
-                },
-
-//                new Row(
-//                  children: <Widget>[
-//
-//                    Icon(Icons.save,semanticLabel: "ddd",textDirection: TextDirection.ltr,),
-//                    Text("haha")
-//                  ],
-                ),
-              ),
               new Container(
                 color: Colors.lightBlueAccent,
               ),
@@ -95,27 +92,5 @@ class PageHome extends StatelessWidget {
       ),
     );
   }
-//  String _title;
-//  PageHome(this._title);
-//
-//  @override
-//  _PageHomeState createState() => _PageHomeState();
+
 }
-//class  _PageHomeState extends State<PageHome>{
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    // TODO: implement build
-//    return Scaffold(
-//      appBar: AppBar(
-//        title: Text(widget._title),
-//      ),
-//      body: Center(
-//        child: Text(
-//          '${widget._title}内容',
-//          style: TextStyle(fontSize: 20.0),
-//        ),
-//      ),
-//    );
-//  }
-//}
