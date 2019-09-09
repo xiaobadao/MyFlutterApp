@@ -63,25 +63,87 @@ class ListState extends State {
 
     return GestureDetector(
       child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
-             new Expanded(
-                 child:Container(
-                   height: 100,
-                   alignment: Alignment.center,
-                   child: getImage(listBean.headUrl),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start, //纵向对齐方式：起始边对齐
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  new Expanded(
+                    child:Container(
+//                      color: Colors.lightBlueAccent,
+//                    padding: EdgeInsets.only(top: 0),
+                      height: 100,
+                      alignment: Alignment.topLeft,
+                      child: getImage(listBean.headUrl),
+                    ),
+                    flex: 1,
 
-                 ),
-               flex: 1,
-
-              ),
-              new Expanded(
-                  child: Container(
-                    padding: EdgeInsets.only(left: 10,right: 10),
                   ),
+                  new Expanded(
+
+                    child: Container(
+//                      color: Colors.teal,
+                      padding: EdgeInsets.only(left: 10),
+                        height: 90.0,
+                        margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              child: Text(
+                                "${listBean.userName}创建的报货单",
+
+                                style: TextStyle(fontSize: 15.0),
+                                textAlign: TextAlign.left,
+
+                              ),
+                              alignment: Alignment.topLeft,//FractionalOffset.topLeft,
+                            ),
+                            Container(
+                              child: Text(
+                                "单据编号: ${listBean.purchaseCode}",
+
+                                style: TextStyle(fontSize: 15.0),
+                                textAlign: TextAlign.left,
+
+                              ),
+                              alignment: Alignment.topLeft,//FractionalOffset.topLeft,
+                            ),
+                            Container(
+                              child: Text(
+                                "商品数量：${listBean.purchaseNum}",
+
+                                style: TextStyle(fontSize: 15.0),
+                                textAlign: TextAlign.left,
+
+                              ),
+                              alignment: Alignment.topLeft,//FractionalOffset.topLeft,
+                            ),
+                            Container(
+                              child: Text(
+                                "合计金额：¥${listBean.amount}",
+
+                                style: TextStyle(fontSize: 15.0),
+                                textAlign: TextAlign.left,
+
+                              ),
+                              alignment: Alignment.topLeft,//FractionalOffset.topLeft,
+                            ),
+                          ],
+                        ),
+
+                    ),
+                    flex: 8,
+                    //padding: EdgeInsets.only(left: 10,right: 10),
+                  ),
+                ],
               ),
+
+            new Divider(),
             ],
+
           ),
 
       ),
