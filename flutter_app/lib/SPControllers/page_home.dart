@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/SPControllers/SPReportController.dart';
 import 'package:flutter_app/SPControllers/SPReportListVC.dart';
 import 'package:flutter_app/SPMD5.dart';
-
+import 'package:flutter/services.dart';
+import 'dart:async';
 class PageHome extends StatelessWidget {
 
   @override
@@ -74,6 +75,8 @@ class PageHome extends StatelessWidget {
 
               new Container(
                 color: Colors.lightGreen,
+                child: RaisedButton(onPressed:handleButtonClick),
+
               ),
 
               new Container(
@@ -93,4 +96,16 @@ class PageHome extends StatelessWidget {
     );
   }
 
+  handleButtonClick() async{
+    //声明
+    Map result;
+    const platform = MethodChannel('FlutterViewController');
+    try{
+      result = await platform.invokeMapMethod("openAppMarke");
+
+    }catch(e){
+//      result = ;
+    }
+    print("$result");
+  }
 }
